@@ -1,0 +1,1 @@
+$data['content'] .= "<tr><th>Photo</th><th>FirstName</th><th>Lastname</th><th>dob</th><th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>select</th></tr></thead><tbody>";

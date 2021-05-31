@@ -3,7 +3,7 @@
    include("_includes/config.inc");
    include("_includes/dbconnect.inc");
    include("_includes/functions.inc");
-
+   include("data.php");
    echo template("templates/partials/header.php");
 
    if (isset($_GET['return'])) {
