@@ -56,7 +56,7 @@ Student Image:
    include("_includes/config.inc");
    include("_includes/dbconnect.inc");
    include("_includes/functions.inc");
-   // check logged in
+   
    if (isset($_SESSION['id'])) {
      echo template("templates/partials/header.php");
      echo template("templates/partials/nav.php");
@@ -79,4 +79,43 @@ if(isset($_POST['btncreate'])){
   
   $hashedpass = password_hash($password, PASSWORD_DEFAULT);
   
-  $idcheck = mysqli_query($conn, "SELECT studentid FROM student WHERE studentid = $ID"); //validation To prevent double entry
+  $idcheck = mysqli_query($conn, "SELECT studentid FROM student WHERE studentid = $ID");
+  
+  $count = mysqli_num_rows($idcheck);
+  if($count>0)
+  {
+     echo "<H3>Error: Unfortunately, there is already a student with this ID.</H3>";
+  }
+  else
+  {
+    $result = mysqli_query($conn, " INSERT INTO student(studentid,password,dob,firstname,lastname,
+      house,town,county,country,postcode) VALUES
+('$ID','$hashedpass', '$dateofbirth', '$fname', '$lname', '$firstline', '$town', '$county', '$country', '$postcode');");
+
+      echo "<H3>Success: A new user has been created!</H3>";
+
+  }
+  
+  }
+
+   echo template("templates/default.php", $data); 
+
+  }
+
+  else 
+  {   
+   header("Location: ../index.php");
+  }
+  echo template("templates/partials/footer.php");
+  ?>
+
+<html>
+<head>
+
+<body>
+    <style>
+
+    </style>
+
+</body>
+</html>
