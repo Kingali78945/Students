@@ -50,3 +50,12 @@ $sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postco
 
       echo "<H3>Success: Data successfully removed!</H3>";
    }
+  echo template("templates/default.php", $data);
+} 
+else 
+{
+   header("Location:../index.php");
+}
+echo template("templates/partials/footer.php"); 
+mysqli_close($conn);
+?>
