@@ -62,3 +62,21 @@ Student Image:
      echo template("templates/partials/nav.php");
      
 $data['content'] .= '</form>';
+
+if(isset($_POST['btncreate'])){
+  
+  $ID = mysqli_real_escape_string($conn, $_POST['txtID']);
+  $fname = mysqli_real_escape_string($conn, $_POST['txtfname']);
+  $lname = mysqli_real_escape_string($conn, $_POST['txtlname']);
+  $dateofbirth = mysqli_real_escape_string($conn, $_POST['dateofbirth']);
+  $password = mysqli_real_escape_string($conn, $_POST['password']);
+  $firstline = mysqli_real_escape_string($conn, $_POST['txtfirstline']);
+  $house = mysqli_real_escape_string($conn, $_POST['txthouse']);
+  $town = mysqli_real_escape_string($conn, $_POST['txttown']);
+  $county = mysqli_real_escape_string($conn, $_POST['txtcounty']);
+  $country = mysqli_real_escape_string($conn, $_POST['txtcountry']);
+  $postcode = mysqli_real_escape_string($conn, $_POST['txtpostcode']);
+  
+  $hashedpass = password_hash($password, PASSWORD_DEFAULT);
+  
+  $idcheck = mysqli_query($conn, "SELECT studentid FROM student WHERE studentid = $ID"); //validation To prevent double entry
