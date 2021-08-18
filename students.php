@@ -40,7 +40,7 @@ $sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postco
      $checkboxcount = count($_POST['delrecords']);
      $i=0;
      while($i<$checkboxcount)
-     {                                 //count of records to delete
+     {                             
        $theid = $_POST['delrecords'][$i];
        mysqli_query($conn, "DELETE FROM student WHERE studentid= '$theid'");
        $i++;
