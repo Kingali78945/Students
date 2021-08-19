@@ -8,12 +8,12 @@ if (isset($_SESSION['id'])) {
    echo template("templates/partials/nav.php");
    $sql = "select * from student;";
    $result = $conn->query($sql);
+   while($row = mysqli_fetch_assoc($result)) {
    $data['content'] .= '<form method="post">';
    $data['content'] .= "<table border='1'>";
    $data['content'] .= "<h2>Students</h2><table class='table table-hover'>";
    $data['content'] .= "<tr><th>Student ID</th><th>DOB</th><th>First Name</th><th>Last Name</th><th>House</th><th>Town</th>
    <th>County</th><th>Country</th><th>Postcode</th><th>Select</th></tr>";
-   
    while($row = mysqli_fetch_array($result)) 
    {
       $data['content'] .= "<tr><td> $row[studentid] </td><td> $row[dob] </td>";
@@ -26,6 +26,7 @@ if (isset($_SESSION['id'])) {
    $data['content'] .= "</br></br></br>";
    $data['content'] .= '<input type="submit" name="delete" value="Delete Records">';
    $data['content'] .= "</form>";
+   }
    if(isset($_POST['delete']))
    {
      $checkboxcount = count($_POST['delrecords']);
