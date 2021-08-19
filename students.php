@@ -6,8 +6,7 @@ include("_includes/functions.inc");
 if (isset($_SESSION['id'])) {
    echo template("templates/partials/header.php");
    echo template("templates/partials/nav.php");
-$sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postcode FROM student;";
-
+   $sql = "select * from student;";
    $result = mysqli_query($conn,$sql);
    $data['content'] .= '<form method="post">';
    $data['content'] .= "<table border='1'>";
