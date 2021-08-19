@@ -53,9 +53,7 @@ if(isset($_POST['btncreate'])){
   $postcode = mysqli_real_escape_string($conn, $_POST['txtpostcode']);
   
   $hashedpass = password_hash($password, PASSWORD_DEFAULT);
-  
   $idcheck = mysqli_query($conn, "SELECT studentid FROM student WHERE studentid = $ID");
-  
   $count = mysqli_num_rows($idcheck);
   if($count>0)
   {
@@ -70,23 +68,17 @@ if(isset($_POST['btncreate'])){
       echo "<H3>Success: A new user has been created!</H3>";
 
   }
-  
   }
-
    echo template("templates/default.php", $data); 
-
   }
-
   else 
   {   
    header("Location: ../index.php");
   }
   echo template("templates/partials/footer.php");
   ?>
-
 <html>
 <head>
-
 <body>
     <style>
 

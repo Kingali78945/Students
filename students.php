@@ -27,6 +27,18 @@ $sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postco
    $data['content'] .= "</br></br></br>";
    $data['content'] .= '<input type="submit" name="delete" value="Delete Records">';
    $data['content'] .= "</form>";
+   if(isset($_POST['delete']))
+   {
+     $checkboxcount = count($_POST['delrecords']);
+     $i=0;
+     while($i<$checkboxcount)
+     {                             
+       $theid = $_POST['delrecords'][$i];
+       mysqli_query($conn, "DELETE FROM student WHERE studentid= '$theid'");
+       $i++;
+     }
+      echo "<H3>Success: Record successfully removed!</H3>";
+   }
   echo template("templates/default.php", $data);
 } 
 else 
