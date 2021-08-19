@@ -8,7 +8,6 @@ if (isset($_SESSION['id'])) {
    echo template("templates/partials/nav.php");
    $sql = "select * from student;";
    $result = $conn->query($sql);
-   while($row = mysqli_fetch_assoc($result)) {
    $data['content'] .= '<form method="post">';
    $data['content'] .= "<table border='1'>";
    $data['content'] .= "<h2>Students</h2><table class='table table-hover'>";
@@ -26,7 +25,7 @@ if (isset($_SESSION['id'])) {
    $data['content'] .= "</br></br></br>";
    $data['content'] .= '<input type="submit" name="delete" value="Delete Records">';
    $data['content'] .= "</form>";
-   }
+   
    if(isset($_POST['delete']))
    {
      $checkboxcount = count($_POST['delrecords']);
