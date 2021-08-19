@@ -7,7 +7,7 @@ if (isset($_SESSION['id'])) {
    echo template("templates/partials/header.php");
    echo template("templates/partials/nav.php");
    $sql = "select * from student;";
-   $result = mysqli_query($conn,$sql);
+   $result = $conn->query($sql);
    $data['content'] .= '<form method="post">';
    $data['content'] .= "<table border='1'>";
    $data['content'] .= "<h2>Students</h2><table class='table table-hover'>";
