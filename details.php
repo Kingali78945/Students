@@ -4,17 +4,13 @@ include("_includes/config.inc");
 include("_includes/dbconnect.inc");
 include("_includes/functions.inc");
 
-
-// check logged in
 if (isset($_SESSION['id'])) {
 
    echo template("templates/partials/header.php");
    echo template("templates/partials/nav.php");
 
-   // if the form has been submitted
    if (isset($_POST['submit'])) {
 
-      // build an sql statment to update the student details
       $sql = "update student set firstname ='" . $_POST['txtfirstname'] . "',";
       $sql .= "lastname ='" . $_POST['txtlastname']  . "',";
       $sql .= "house ='" . $_POST['txthouse']  . "',";
@@ -29,15 +25,11 @@ if (isset($_SESSION['id'])) {
 
    }
    else {
-      // Build a SQL statment to return the student record with the id that
-      // matches that of the session variable.
+
       $sql = "select * from student where studentid='". $_SESSION['id'] . "';";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result);
 
-      // using <<<EOD notation to allow building of a multi-line string
-      // see http://stackoverflow.com/questions/6924193/what-is-the-use-of-eod-in-php for info
-      // also http://stackoverflow.com/questions/8280360/formatting-an-array-value-inside-a-heredoc
       $data['content'] = <<<EOD
 
    <h2>My Details</h2>
@@ -63,7 +55,6 @@ EOD;
 
    }
 
-   // render the template
    echo template("templates/default.php", $data);
 
 } else {
