@@ -18,7 +18,7 @@ $sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postco
    $data['content'] .= "<tr><th>Student ID</th><th>DOB</th><th>First Name</th><th>Last Name</th><th>House</th><th>Town</th>
    <th>County</th><th>Country</th><th>Postcode</th><th>Select</th></tr>";
    
-    while($row = mysqli_fetch_array($result)) 
+   while($row = mysqli_fetch_array($result)) 
    
    {
       $data['content'] .= "<tr><td> $row[studentid] </td><td> $row[dob] </td>";
@@ -32,7 +32,6 @@ $sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postco
    $data['content'] .= "</br></br></br>";
    $data['content'] .= '<input type="submit" name="delete" value="Delete Records">';
    $data['content'] .= "</form>";
-
 
   echo template("templates/default.php", $data);
 } 
