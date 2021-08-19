@@ -1,8 +1,6 @@
 <html>
 <h2> Detail Of Student</h2>
-
 <form enctype ="multipart/form-data" action ="savestudents.php" method ="post">
-
 Student ID:
 <input type ="number" name ="numid" class ="form-control" />
 DOB:
