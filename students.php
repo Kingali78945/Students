@@ -27,7 +27,6 @@ $sql = "SELECT studentid,dob,firstname,lastname,house,town,county,country,postco
    $data['content'] .= "</br></br></br>";
    $data['content'] .= '<input type="submit" name="delete" value="Delete Records">';
    $data['content'] .= "</form>";
- 
   echo template("templates/default.php", $data);
 } 
 else 
