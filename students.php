@@ -25,8 +25,7 @@ if (isset($_SESSION['id'])) {
    $data['content'] .= "</br></br></br>";
    $data['content'] .= '<input type="submit" name="delete" value="Delete Records">';
    $data['content'] .= "</form>";
-   
-   if(isset($_POST['delete']))
+    if(isset($_POST['delete']))
    {
      $checkboxcount = count($_POST['delrecords']);
      $i=0;
@@ -38,6 +37,7 @@ if (isset($_SESSION['id'])) {
      }
       echo "<H3>Success: Record successfully removed!</H3>";
    }
+   
   echo template("templates/default.php", $data);
 } 
 else 
