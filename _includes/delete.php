@@ -13,6 +13,7 @@ if (isset($_SESSION['id'])) {
 	else {
 		foreach ($students as $studentid) {
 			$sql = "DELETE from student WHERE studentid='$studentid';";
+			echo "<H3>Success: Record successfully removed!</H3>";
 			mysqli_query($conn,$sql);
 			
 		}
