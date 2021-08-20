@@ -1,5 +1,4 @@
 <?php
-
 $sql1="INSERT INTO `student` (`studentid`, `password`, `dob`, `firstname`, `lastname`, `house`, `town`, `county`, `country`, `postcode`) VALUES
 ('20000000', '$2y$10$.LJBOl64nZWEVVE/v5mgNuzR01zx1zoyXuGJUa/zp2U.MQxkps3LS', '1974-11-10', 'Jon', 'Smith', '23 Victoria Road', 'High Wycombe', 'Bucks', 'UK', 'HP11 1RT');";
 $sql2="INSERT INTO`student` (`studentid`, `password`, `dob`, `firstname`, `lastname`, `house`, `town`, `county`, `country`, `postcode`) VALUES
