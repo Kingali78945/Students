@@ -9,7 +9,7 @@ if (isset($_SESSION['id'])) {
    $sql = "select * from student;";
    $result = $conn->query($sql);
  while($row = mysqli_fetch_assoc($result)) {
-      $data['content'] .= "<form action='_includes/delete.php' method='POST'><h2>Students</h2><table class='table table-hover' >";
+      $data['content'] .= "form method="post"><h2>Students</h2><table class='table table-hover'>";
       $data['content'] .= "<thead>";
       $data['content'] .= "<tr><th>FirstName</th><th>Lastname</th><th>dob</th><th>House</th><th>Town</th><th>County</th><th>Country</th><th>Postcode</th><th>select</th></tr></thead><tbody>";
       while($row = mysqli_fetch_array($result)) {
@@ -18,6 +18,19 @@ if (isset($_SESSION['id'])) {
       }
       $data['content'] .= "</tbody></table>  <div><input type='submit' name='Delete' value='Delete'></div></form>";
        }
+	   if(isset($_POST['delete']))
+   {
+     $checkboxcount = count($_POST['delrecords']);
+     $i=0;
+     while($i<$checkboxcount)
+     {                             
+       $theid = $_POST['delrecords'][$i];
+       mysqli_query($conn, "DELETE FROM student WHERE studentid= '$theid'");
+       $i++;
+     }
+      echo "<H3>Success: Record successfully removed!</H3>";
+   }
+   
    
   echo template("templates/default.php", $data);
 } 
